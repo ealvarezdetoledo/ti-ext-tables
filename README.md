@@ -8,7 +8,7 @@ Once installed a new location url is available in the format "$location/table/$i
 This information will be stored the session under the key "thoughtco.tables", which you can access within your templates as follows:
 
 ```php
-$tableData = Session.get('thoughtco.tables');
+$tableData = Session::get('thoughtco.tables');
 // ['location' => xxx, 'id' => xxx]
 ```
 
