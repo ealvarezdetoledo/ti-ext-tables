@@ -34,7 +34,7 @@ Replace:
 with:
 
 ```
-<?php if (($tableData = Session::get('thoughtco.tables')) && $tableData['location'] == $location->getId() && $order->isCollectionType()){ ?>
+<?php if (($tableData = Session::get('thoughtco.tables')) && ($tableData['location'] == $location->getId()) && $order->isCollectionType()){ ?>
 <input type="hidden" name="comment" id="comment" value="Table <?= $tableData['table'] ?>" />
 <?php } else { ?>
 <div class="form-group">
