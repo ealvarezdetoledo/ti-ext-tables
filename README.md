@@ -7,7 +7,7 @@ Once installed a new location url is available in the format "$location/table/$i
 
 This information will be stored the session under the key "thoughtco.tables", which you can access within your templates as follows:
 
-```
+```php
 $tableData = Session.get('thoughtco.tables');
 // ['location' => xxx, 'id' => xxx]
 ```
@@ -19,7 +19,7 @@ Edit your theme/partials/checkout/form.php file as follows:
 
 Replace:
 
-```
+```html
 <div class="form-group">
     <label for="comment"><?= lang('igniter.cart::default.checkout.label_comment'); ?></label>
     <textarea
@@ -33,7 +33,7 @@ Replace:
 
 with:
 
-```
+```html
 <?php if (($tableData = Session::get('thoughtco.tables')) && ($tableData['location'] == $location->getId()) && $order->isCollectionType()){ ?>
 <input type="hidden" name="comment" id="comment" value="Table <?= $tableData['table'] ?>" />
 <?php } else { ?>
