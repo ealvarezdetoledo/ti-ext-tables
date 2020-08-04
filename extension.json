@@ -1,0 +1,13 @@
+{
+  "code": "thoughtco.tables",
+  "name": "Tables",
+  "description": "Enables service to tables by adding a table endpoint and adding the value to the order comment",
+  "version": "v1.0.0",
+  "author": "ryanmitchell",
+  "icon": {
+    "class": "fa fa-chair",
+    "backgroundColor": "#111",
+    "color": "#FFF"
+  },
+  "homepage": "https://github.com/thoughtco/ti-ext-tables"
+}
