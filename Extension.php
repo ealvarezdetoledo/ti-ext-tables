@@ -25,6 +25,11 @@ class Extension extends BaseExtension
             }
             
         }); 
+        
+        // make table_number fillable
+		\Admin\Models\Orders_model::extend(function ($model){
+			$model->fillable(array_merge($model->getFillable(), ["table_number"]));	
+		});        
     }
     
     public function registerNavigation()
