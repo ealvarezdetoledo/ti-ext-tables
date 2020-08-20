@@ -15,39 +15,13 @@ $tableData = Session::get('thoughtco.tables');
 ### Amend templates
 The simplest way to pass the table number to the backend is through the order comment.
 
-Edit your theme/partials/checkout/form.php file as follows:
-
-Replace:
-
-```html
-<div class="form-group">
-    <label for="comment"><?= lang('igniter.cart::default.checkout.label_comment'); ?></label>
-    <textarea
-        name="comment"
-        id="comment"
-        rows="3"
-        class="form-control"
-    ><?= set_value('comment', $order->comment); ?></textarea>
-</div>
-```
-
-with:
+Edit your theme/partials/checkout/form.php file to include the table number, for example:
 
 ```html
 <?php if (($tableData = Session::get('thoughtco.tables')) && ($tableData['location'] == $location->getId()) && $order->isCollectionType()){ ?>
-<input type="hidden" name="comment" id="comment" value="Table <?= $tableData['table'] ?>" />
-<?php } else { ?>
-<div class="form-group">
-    <label for="comment"><?= lang('igniter.cart::default.checkout.label_comment'); ?></label>
-    <textarea
-        name="comment"
-        id="comment"
-        rows="3"
-        class="form-control"
-    ><?= set_value('comment', $order->comment); ?></textarea>
-</div>
+<input type="hidden" name="table_number" value="<?= $tableData['table'] ?>" />
 <?php } ?>
 ```
 
-This will hide the order comment field for any users that come through the table url and add the table information as a comment.
+This will populate the table_number field on a order, when it is present.
 
