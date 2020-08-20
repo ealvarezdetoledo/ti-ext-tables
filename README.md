@@ -1,6 +1,6 @@
 ## Add table selection
 
-Enables service to tables by adding a table endpoint and adding the value to the order comment.
+Enables service to tables by adding a table endpoint and adding the value to a new order field.
 
 ### Table url
 Once installed a new location url is available in the format "$location/table/$id", e.g. /default/table/22. You should direct customers to this through the use of a QR code or visible URL on the table.
@@ -13,8 +13,6 @@ $tableData = Session::get('thoughtco.tables');
 ```
 
 ### Amend templates
-The simplest way to pass the table number to the backend is through the order comment.
-
 Edit your theme/partials/checkout/form.php file to include the table number, for example:
 
 ```html
