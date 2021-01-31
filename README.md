@@ -23,3 +23,27 @@ Edit your theme/partials/checkout/form.php file to include the table number, for
 
 This will populate the table_number field on a order, when it is present.
 
+### Save table number to the order
+
+This way, restaurant owners/managers can check the table from which the order was placed from the backend. Table number will also be accessible from $order->table_number in case you want to print it out or access it from another extension.
+
+This requires you to modify the cart extension. You need to make the modifications detailed below to Extensions/igniter/cart/classes/OrderManager.php.
+
+Add this to line 15 of the file.
+
+```php
+use Session;
+```
+
+Then, add this attribute to the function GetCustomerAttributes (line 269):
+
+```php
+'table_number' => "",
+```
+
+Lastly, write the table stored in session
+
+```php
+$tableData = Session::get('thoughtco.tables');
+$order->table_number = $tableData['table'];
+```
