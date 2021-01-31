@@ -20,7 +20,7 @@ Route::group([
 			// set to collection
 			$locationModel = App::make('location');
 			$locationModel->updateOrderType('collection');
-			
+			flash()->success(sprintf(lang('thoughtco.tables::default.welcome_message')) . $id);
 			// redirect to menus
 			return redirect($location.'/menus');
 		}
